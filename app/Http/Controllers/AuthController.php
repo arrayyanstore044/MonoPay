@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -31,6 +32,13 @@ class AuthController extends Controller
         // Kirim email verifikasi
         $user->sendEmailVerificationNotification();
 
+        // Generate link verifikasi untuk dikembalikan di response
+        $verificationUrl = URL::temporarySignedRoute(
+            'verification.verify',
+            now()->addMinutes(60),
+            ['id' => $user->id, 'hash' => sha1($user->getEmailForVerification())]
+        );
+
         // Response sukses (mengembalikan password sesuai instruksi di issue.md)
         return response()->json([
             'status' => 'OK!',
@@ -41,7 +49,8 @@ class AuthController extends Controller
                     'name' => $user->name,
                     'notelp' => $user->notelp,
                     'email' => $user->email,
-                ]
+                ],
+                'verification_url' => $verificationUrl
             ]
         ], 201);
     }

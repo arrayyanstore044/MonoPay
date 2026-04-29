@@ -32,6 +32,11 @@ class AuthRegisterTest extends TestCase
                              'email' => 'jhon@example.com'
                          ]
                      ]
+                 ])
+                 ->assertJsonStructure([
+                     'data' => [
+                         'verification_url'
+                     ]
                  ]);
 
         $this->assertDatabaseHas('users', ['email' => 'jhon@example.com']);
