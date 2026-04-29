@@ -9,6 +9,7 @@
         "php": "^8.2",
         "haruncpi/laravel-id-generator": "*",
         "laravel/framework": "^11.9",
+        "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "midtrans/midtrans-php": "*",
         "spatie/laravel-permission": "*",
