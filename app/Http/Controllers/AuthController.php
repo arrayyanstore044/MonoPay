@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\UserSession;
+use App\Http\Resources\User\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\URL;
@@ -47,12 +48,7 @@ class AuthController extends Controller
             'status' => 'OK!',
             'message' => 'User successfully registered!',
             'data' => [
-                'user' => [
-                    'id' => $user->id,
-                    'name' => $user->name,
-                    'notelp' => $user->notelp,
-                    'email' => $user->email,
-                ],
+                'user' => new UserResource($user),
                 'verification_url' => $verificationUrl
             ]
         ], 201);
@@ -88,11 +84,9 @@ class AuthController extends Controller
             'status' => 'OK!',
             'message' => 'User successfully registered!',
             'data' => [
-                'user' => [
-                    'id' => $user->id,
-                    'name' => $user->name,
+                'user' => array_merge((new UserResource($user))->resolve(), [
                     'token' => $token
-                ]
+                ])
             ]
         ], 200);
     }
