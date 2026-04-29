@@ -1,0 +1,17 @@
+Buatkan issue.md, berisi planning untuk membuat ini :
+
+Buat Project baru di folder ini
+
+menggunakan Laravel
+
+dan gunakan dependency/package ini: 
+- Spatie Laravel Permission (Untuk management Role & Permission)
+- Midtrans (Untuk payment gateway)
+- Spatie Laravel Webhook Client (Untuk menerima webhook dari Xendit)
+- jovandeginst/laravel-id-generator
+
+Jangan terlalu low level atau detail
+
+Cukup instruksikan secara high level
+
+Nanti document planning akan di gunakan oleh programmer atau model yang lebih murah untuk di implementasikan.
