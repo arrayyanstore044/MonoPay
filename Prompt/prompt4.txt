@@ -1,0 +1,36 @@
+Buatkan issue.md yang berisi perencanaan untuk nanti di implementasikan oleh junior programmer atau AI model yang lebih murah.
+
+Isi dari planningnya adalah sebagaia berikut :
+
+Buatkan API untuk get user saat ini yang sedang login
+
+Endpoint : GET /api/users/current
+
+Headers :
+- Authorization : Bearer <token> (token adalah token yang ada di table users)
+
+Response Body (Success) :
+ {
+    "status" : "OK!"
+    "message": "Get Current User Success!"
+    "data": {
+        "user": {
+            "id": 1,
+            "name": "Jhon",
+            "email": "[EMAIL_ADDRESS]",
+            "created_at": "timestamp"
+        }
+    }
+ }
+
+ Response Body (Wrong Email or Password) :
+ { 
+    "status": "ERROR",
+    "message": "UnAuthorized.",
+    "data": null
+}
+
+Struktur folder di dalam controller
+ - tambah folder baru di dalam controller misal user
+
+Jelaskan tahapan - tahapan yang harus di lakukan untuk mengimplementasikan fitur ini, anggap nanti yang mengimplementasikan adalah junior programmer atau model AI yang lebih murah.
