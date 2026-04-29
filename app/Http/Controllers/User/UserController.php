@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\UserSession;
+use App\Http\Resources\User\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,12 +18,24 @@ class UserController extends Controller
             'status' => 'OK!',
             'message' => 'Get Current User Success!',
             'data' => [
-                'user' => [
-                    'id' => $user->id,
-                    'name' => $user->name,
-                    'email' => $user->email,
-                    'created_at' => $user->created_at,
-                ]
+                'user' => new UserResource($user)
+            ]
+        ], 200);
+    }
+
+    public function logout(Request $request)
+    {
+        $user = Auth::user();
+        $token = $request->bearerToken();
+
+        // Hapus session berdasarkan token
+        UserSession::where('token', $token)->delete();
+
+        return response()->json([
+            'status' => 'OK!',
+            'message' => 'User Log Out Successfully!',
+            'data' => [
+                'user' => new UserResource($user)
             ]
         ], 200);
     }

@@ -15,6 +15,7 @@ use App\Http\Controllers\User\UserController;
 
 Route::middleware(['auth.session'])->group(function () {
     Route::get('/users/current', [UserController::class, 'getCurrentUser']);
+    Route::delete('/users/logout', [UserController::class, 'logout']);
 });
 
 // Rute verifikasi email dummy agar tidak error saat memanggil sendEmailVerificationNotification
