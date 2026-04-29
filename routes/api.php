@@ -9,6 +9,7 @@ Route::get('/user', function (Request $request) {
 
 use App\Http\Controllers\AuthController;
 Route::post('/auth/register', [AuthController::class, 'register']);
+Route::post('/auth/login', [AuthController::class, 'login']);
 
 // Rute verifikasi email dummy agar tidak error saat memanggil sendEmailVerificationNotification
 Route::get('/email/verify/{id}/{hash}', function () {

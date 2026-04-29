@@ -1,0 +1,41 @@
+Buatkan issue.md yang berisi perencanaan untuk nanti di implementasikan oleh junior programmer atau AI model yang lebih murah.
+
+Isi dari planningnya adalah sebagaia berikut :
+
+Buatkan tabel user_session : 
+- id integer auto increment
+- token varchar 255 not null (isinya UUID untuk token user yang login)
+- user_id integer (FK ke table users)
+- expired_at datetime (default 24 jam dari waktu pembuatan)
+
+Buatkan API untuk Login user
+
+Endpoint : POST /api/auth/login
+
+Request Body :
+ {
+    "email" : "[EMAIL_ADDRESS]",
+    "password" : "password"
+ }
+
+Response Body (Success) :
+ {
+    "status" : "OK!"
+    "message": "User successfully registered!"
+    "data": {
+        "user": {
+            "id": 1,
+            "name": "Jhon",
+            "token"
+        }
+    }
+ }
+
+ Response Body (Wrong Email or Password) :
+ { 
+    "status": "ERROR",
+    "message": "Wrong email or password.",
+    "data": null
+}
+
+Jelaskan tahapan - tahapan yang harus di lakukan untuk mengimplementasikan fitur ini, anggap nanti yang mengimplementasikan adalah junior programmer atau model AI yang lebih murah.
