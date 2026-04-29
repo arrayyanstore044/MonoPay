@@ -1,0 +1,41 @@
+Buatkan issue.md yang berisi perencanaan untuk nanti di implementasikan oleh junior programmer atau AI model yang lebih murah.
+
+Isi dari planningnya adalah sebagaia berikut :
+
+Buatkan API untuk logout user
+
+Endpoint : DELETE /api/users/logout
+
+Headers :
+- Authorization : Bearer <token> (token adalah token yang ada di table users)
+
+Response Body (Success) :
+ {
+    "status" : "OK!"
+    "message": "User Log Out Successfully!"
+    "data": {
+        "user": {
+            "id": 1,
+            "name": "Jhon",
+            "email": "[EMAIL_ADDRESS]",
+            "created_at": "timestamp"
+        }
+    }
+ }
+
+Jika sukses logout, maka data session dengan token tersebut harus di hapus dari table user_session
+
+ Response Body (Failed) :
+ { 
+    "status": "ERROR",
+    "message": "UnAuthorized.",
+    "data": null
+}
+
+Struktur folder di dalam controller
+ - tambah folder baru di dalam controller misal user
+
+Jelaskan tahapan - tahapan yang harus di lakukan untuk mengimplementasikan fitur ini, anggap nanti yang mengimplementasikan adalah junior programmer atau model AI yang lebih murah.
+
+
+buat branch feature/logout-user lalu implementasikan https://github.com/arrayyanstore044/MonoPay/issues/9 di brnach tersebut
